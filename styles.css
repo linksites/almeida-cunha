@@ -438,6 +438,7 @@ img { max-width: 100%; display: block; }
     visibility: hidden;
     pointer-events: none;
     transition: 0.25s ease;
+    display: none;
   }
 
   .main-nav a {
@@ -458,31 +459,33 @@ img { max-width: 100%; display: block; }
     visibility: hidden;
     pointer-events: none;
     transition: 0.25s ease;
-    display: block;
+    display: none;
   }
 
-  body.menu-open .main-nav {
+  .topbar.is-open .main-nav {
+    display: flex;
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
   }
 
-  body.menu-open .nav-backdrop {
+  .topbar.is-open .nav-backdrop {
+    display: block;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
   }
 
-  body.menu-open .menu-toggle span:nth-child(1) {
+  .topbar.is-open .menu-toggle span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
   }
 
-  body.menu-open .menu-toggle span:nth-child(2) {
+  .topbar.is-open .menu-toggle span:nth-child(2) {
     opacity: 0;
   }
 
-  body.menu-open .menu-toggle span:nth-child(3) {
+  .topbar.is-open .menu-toggle span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
   }
 

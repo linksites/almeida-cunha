@@ -16,7 +16,14 @@
       <a href="#inicio" class="brand" aria-label="Miguel Almeida Cunha - Início">
         <img src="logo.jpeg" alt="Logomarca Miguel Almeida Cunha" />
       </a>
-      <button class="menu-toggle" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="main-menu">
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-label="Abrir menu principal"
+        aria-expanded="false"
+        aria-controls="main-menu"
+        aria-haspopup="true"
+      >
         <span></span>
         <span></span>
         <span></span>
@@ -206,16 +213,22 @@
     const mainNav = document.querySelector('#main-menu');
     const backdrop = document.querySelector('.nav-backdrop');
 
-    if (menuButton && mainNav && backdrop) {
+    const topbar = document.querySelector('.topbar');
+
+    if (menuButton && mainNav && backdrop && topbar) {
+      const setMenuState = (open) => {
+        menuButton.setAttribute('aria-expanded', String(open));
+        topbar.classList.toggle('is-open', open);
+        document.body.classList.toggle('menu-open', open);
+      };
+
       const closeMenu = () => {
-        menuButton.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('menu-open');
+        setMenuState(false);
       };
 
       menuButton.addEventListener('click', () => {
         const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-        menuButton.setAttribute('aria-expanded', String(!isOpen));
-        document.body.classList.toggle('menu-open', !isOpen);
+        setMenuState(!isOpen);
       });
 
       mainNav.querySelectorAll('a').forEach((link) => {
@@ -235,6 +248,8 @@
           closeMenu();
         }
       });
+
+      closeMenu();
     }
   </script>
 </body>

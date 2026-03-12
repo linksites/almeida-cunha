@@ -16,13 +16,19 @@
       <a href="#inicio" class="brand" aria-label="Miguel Almeida Cunha - Início">
         <img src="logo.jpeg" alt="Logomarca Miguel Almeida Cunha" />
       </a>
-      <nav>
+      <button class="menu-toggle" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="main-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="main-menu" class="main-nav" aria-label="Menu principal">
         <a href="#areas">Áreas de atuação</a>
         <a href="#sobre">Sobre</a>
         <a href="#diferenciais">Diferenciais</a>
         <a href="#contato" class="nav-cta">Contato</a>
       </nav>
     </div>
+    <div class="nav-backdrop" aria-hidden="true"></div>
   </header>
 
   <main>
@@ -46,6 +52,16 @@
             <li>Atendimento com discrição e objetividade</li>
             <li>Estratégia para demandas judiciais e extrajudiciais</li>
           </ul>
+          <div class="hero-metrics">
+            <article>
+              <strong>Atendimento hibrido</strong>
+              <p>Consultas online e presenciais com organizacao por prioridade.</p>
+            </article>
+            <article>
+              <strong>Comunicacao objetiva</strong>
+              <p>Atualizacoes em linguagem simples para clareza em cada etapa.</p>
+            </article>
+          </div>
         </div>
         <div class="hero-card">
           <div class="glass-card">
@@ -53,6 +69,9 @@
             <p><strong>Direito Civil</strong><br>Contratos, obrigações, indenizações, responsabilidade civil e litígios patrimoniais.</p>
             <p><strong>Família e Divórcio</strong><br>Divórcio, guarda, convivência, pensão alimentícia, união estável e revisão de alimentos.</p>
             <p><strong>Consumidor e Trabalhista</strong><br>Orientação e defesa de direitos em relações de consumo e questões trabalhistas.</p>
+          </div>
+          <div class="floating-badge">
+            <span>Atendimento com hora marcada</span>
           </div>
         </div>
       </div>
@@ -182,5 +201,41 @@
       </div>
     </div>
   </footer>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('#main-menu');
+    const backdrop = document.querySelector('.nav-backdrop');
+
+    if (menuButton && mainNav && backdrop) {
+      const closeMenu = () => {
+        menuButton.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      };
+
+      menuButton.addEventListener('click', () => {
+        const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!isOpen));
+        document.body.classList.toggle('menu-open', !isOpen);
+      });
+
+      mainNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      backdrop.addEventListener('click', closeMenu);
+
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 980) {
+          closeMenu();
+        }
+      });
+    }
+  </script>
 </body>
 </html>

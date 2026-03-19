@@ -40,9 +40,13 @@ O projeto e um site estatico, sem etapa de build e sem dependencias de framework
 
 ```text
 .
+|-- favicon.svg
 |-- index.html
+|-- logo-optimized.jpg
 |-- styles.css
+|-- script.js
 |-- logo.jpeg
+|-- og-image.jpg
 `-- README.md
 ```
 
@@ -64,7 +68,11 @@ Os principais pontos de edicao ficam nestes arquivos:
 
 - `index.html`: textos, links, secoes, metadados e script do menu mobile
 - `styles.css`: cores, tipografia, espacamentos, responsividade e animacoes
-- `logo.jpeg`: identidade visual exibida no cabecalho
+- `script.js`: comportamento do menu mobile
+- `logo.jpeg`: arquivo original da identidade visual
+- `logo-optimized.jpg`: versao mais leve usada no site
+- `og-image.jpg`: imagem de compartilhamento para redes sociais
+- `favicon.svg`: icone do site para navegadores
 
 Alguns ajustes comuns:
 
@@ -72,6 +80,7 @@ Alguns ajustes comuns:
 - Atualizar descricao, titulo e metadados no `<head>`
 - Trocar a logo por outro arquivo de imagem
 - Revisar textos institucionais e areas de atuacao
+- Ajustar `og:image`, `canonical` e favicon conforme o dominio de publicacao
 
 ## Deploy
 
@@ -84,5 +93,5 @@ O projeto pode ser publicado em qualquer hospedagem de site estatico, como:
 
 ## Observacoes
 
-- O menu mobile e controlado por um script inline no final do `index.html`
+- O menu mobile e controlado pelo arquivo `script.js`
 - O projeto depende de carregamento externo das fontes via Google Fonts

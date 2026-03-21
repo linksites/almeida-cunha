@@ -76,7 +76,6 @@ Os principais pontos de edicao ficam nestes arquivos:
 
 Alguns ajustes comuns:
 
-- Alterar e-mail e Instagram na secao de contato
 - Atualizar descricao, titulo e metadados no `<head>`
 - Trocar a logo por outro arquivo de imagem
 - Revisar textos institucionais e areas de atuacao

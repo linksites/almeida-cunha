@@ -216,17 +216,6 @@ img { max-width: 100%; display: block; }
   background: rgba(255,255,255,0.04);
 }
 
-.btn-muted {
-  background: rgba(255,255,255,0.03);
-  color: var(--silver-2);
-  border-color: rgba(255,255,255,0.1);
-}
-
-.btn-muted:hover {
-  background: rgba(255,255,255,0.06);
-  color: var(--text);
-}
-
 .hero-highlights {
   display: flex;
   gap: 12px;

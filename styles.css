@@ -391,7 +391,7 @@ img { max-width: 100%; display: block; }
 .footer-grid {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
+  gap: 32px;
   flex-wrap: wrap;
 }
 
@@ -400,15 +400,27 @@ img { max-width: 100%; display: block; }
   margin: 6px 0;
 }
 
-.footer-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
+.footer-meta {
+  min-width: 280px;
 }
 
-.footer-actions .btn {
-  width: 100%;
+.footer-legal {
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.footer-legal-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-legal p {
+  margin: 0;
+  color: var(--silver-3);
+  font-size: 0.94rem;
 }
 
 @keyframes fadeUp {
@@ -515,7 +527,8 @@ img { max-width: 100%; display: block; }
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  .footer-actions {
+  .footer-meta,
+  .footer-legal-content {
     width: 100%;
   }
 }
